@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">ZohoTaskNewsApp</string>
+    <string name="read_more">Read More...</string>
+    <string name="no_news_msg">No data available. Please check your internet connection once</string>
+</resources>
