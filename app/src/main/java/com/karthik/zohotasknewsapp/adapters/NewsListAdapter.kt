@@ -14,7 +14,6 @@ import com.karthik.zohotasknewsapp.databinding.ItemNewsLayoutBinding
 import java.util.regex.Matcher
 import java.util.regex.Pattern
 
-
 class NewsListAdapter(
     var newsList: List<News>? = null,
     val onReadMoreListener: OnReadMoreListener,
@@ -44,7 +43,7 @@ class NewsListAdapter(
 
                 if(!searchedText.isNullOrBlank())
                 {
-                    var spannableString = SpannableString(title)
+                    val spannableString = SpannableString(title)
                     val pattern: Pattern = Pattern.compile(
                         searchedText,
                         Pattern.CASE_INSENSITIVE
@@ -61,7 +60,6 @@ class NewsListAdapter(
                         Spanned.SPAN_EXCLUSIVE_EXCLUSIVE
                     )
                     while (matcher.find()) {
-
                         //highlight all matching words in cursor with white background(since i have a colorfull background image)
                         spannableString.setSpan(
                             BackgroundColorSpan(
