@@ -21,10 +21,8 @@ import com.karthik.zohotasknewsapp.views.BaseActivity
 import dagger.hilt.android.AndroidEntryPoint
 import kotlin.math.roundToInt
 
-
 @AndroidEntryPoint
 class NewsListActivity : BaseActivity(), OnReadMoreListener {
-
     val viewModel: NewsViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -54,7 +52,7 @@ class NewsListActivity : BaseActivity(), OnReadMoreListener {
         view.rvNewsList.adapter = newsAdapter
 
         viewModel.filteredList.observe(this) {
-            newsAdapter.updateData(it)
+            newsAdapter.updateData(it, view.svNewsList.query.toString())
         }
 
         viewModel.WeatherResponse.observe(this) {
@@ -112,6 +110,10 @@ class NewsListActivity : BaseActivity(), OnReadMoreListener {
 
     override fun onNewsClick(news: News) {
         OnCustomChromeOpen(news.url)
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
     }
 
     override fun onReadMoreClick(news: News) {

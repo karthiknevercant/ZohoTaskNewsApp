@@ -15,6 +15,7 @@ class NewsRespositary @Inject constructor(
     @ApplicationContext private val context: Context,
     private val newsDao: NewsDao
 ) {
+
     suspend fun getNewsList(): List<News> {
         lateinit var newsList: List<News>
         withContext(Dispatchers.IO) {
